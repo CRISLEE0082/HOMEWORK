@@ -14,13 +14,15 @@ subplot(1,2,2);
 scatter(Train_Norm(:,1),Train_Norm(:,3),'*');
 
 % Calculate the Aiming Matrix
-Aim_Mat=Train_Norm*Train_Norm';
+Aim_Mat=Train_Norm'*Train_Norm;
 
 % Calculate the eigen vectors of the matrix
 [Vector,Value]=eig(Aim_Mat);
 
+Gain=sort(Train_Norm*Vector,2,'descend');
+
 % Do the PCA with 3_dimensional Matrix
-Train_PCA=Vector(:,1:3);
+Train_PCA=Gain(:,1:3);
 
 disp(Train_PCA);
 
