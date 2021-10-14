@@ -19,7 +19,7 @@ Aim_Mat=Train_Norm'*Train_Norm;
 % Calculate the eigen vectors of the matrix
 [Vector,Value]=eig(Aim_Mat);
 
-Gain=sort(Train_Norm*Vector,2,'descend');
+Gain=sort(Train_Norm*Vector,1,'descend');
 
 % Do the PCA with 3_dimensional Matrix
 Train_PCA=Gain(:,1:3);
